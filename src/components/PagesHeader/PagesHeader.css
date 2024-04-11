@@ -1,0 +1,36 @@
+.PagesHeader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100vw;
+  height: 12vh;
+}
+
+.PagesHeader .atras,
+.PagesHeader .siguiente {
+  width: 72px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.PagesHeader a {
+  position: absolute;
+}
+
+.PagesHeader a:nth-child(1) {
+  left: 10vh;
+}
+
+.PagesHeader a:nth-child(3) {
+  right: 10vh;
+}
+
+.PagesHeader h1 {
+  position: absolute;
+  font-size: 3rem;
+  color: #75a1b6;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

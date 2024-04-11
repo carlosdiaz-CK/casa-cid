@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+}
+
+.pagesLayout__main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding-bottom: 10vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.pagesLayout__main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.pagesLayout__main h1,
+.pagesLayout__main h2,
+.pagesLayout__main p,
+.pagesLayout__main a,
+.pagesLayout__main li {
+  color: #ffffff;
+}
+
+.main__content {
+  position: relative;
+  padding: 4vh 10vh;
+  max-height: 824px;
+  overflow: hidden;
+  text-align: justify;
+  z-index: 1;
+}
+
+.main__content h2 {
+  font-size: 2.6rem;
+  margin: 40px 0 20px 0;
+  color: #75a1b6;
+  text-decoration: underline;
+}
+
+.main__content ol {
+  margin: 20px 0 0 92px;
+}
+
+.main__content p,
+.main__content li {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.main__content .page h2 {
+  margin-top: 0;
+}
+
+.page__columns {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.page__columns div:nth-child(1) {
+  width: 30%;
+  padding-right: 20px;
+}
+
+.page__columns div:nth-child(2) {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.page__columns div img {
+  width: 100%;
+  height: auto;
+  max-height: 278px;
+  object-fit: cover;
+  border-radius: 20px;
+}

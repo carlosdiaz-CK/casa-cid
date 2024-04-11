@@ -1,0 +1,378 @@
+@charset "UTF-8";
+/* ******* Global styles ******* */
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+}
+
+div.displayNone {
+  display: none;
+}
+
+a {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dNone {
+  display: none;
+}
+
+/* ******* Screen saver styles ******* */
+.screen-saver {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../public/assets/img/photos/casa-cid-1.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+  z-index: 3;
+}
+
+.screen-saver-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+.screen-saver-video::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
+
+#screen-saver-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+#screen-saver-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screen-saver__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+.screen-saver__logo img {
+  width: 25vw;
+}
+.screen-saver__logo h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  text-align: center;
+  opacity: 0.75;
+}
+
+.screen-saver::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.screen-saver img:nth-child(2) {
+  order: 2;
+}
+
+/* ******* Main styles ******* */
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../public/assets/img/photos/casa-cid-2.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* Aquí puedes ajustar la opacidad (0.5 en este caso) */
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 220vh;
+  height: 220vh;
+  top: -60vh;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.menu__logo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #000000;
+  border: 8px solid #75a1b6;
+  overflow: hidden;
+  width: 110vh;
+  height: 110vh;
+  transform: translateX(50%);
+}
+.menu__logo img {
+  position: absolute;
+  right: 70px;
+  width: 40%;
+}
+.menu__nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 220vh;
+  height: 220vh;
+}
+.menu__nav ul {
+  position: absolute;
+  left: 77%;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 64px;
+}
+.menu__nav li {
+  width: 520px;
+  list-style: none;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+}
+.menu__nav li a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+}
+.menu__nav li a::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 520px;
+  border-bottom: 2px solid #ffffff;
+}
+.menu__nav li:nth-child(1),
+.menu__nav li:nth-child(8) {
+  transform: translateX(-104px);
+}
+.menu__nav li:nth-child(2),
+.menu__nav li:nth-child(7) {
+  transform: translateX(-60px);
+}
+.menu__nav li:nth-child(3),
+.menu__nav li:nth-child(6) {
+  transform: translateX(-20px);
+}
+
+.view {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  padding: 100px;
+  background-image: url('../../public/assets/img/photos/casa-cid-17.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: #ffffff;
+  transform: translateX(-100vw);
+  z-index: 2;
+}
+.view__header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+}
+.view__header .atras {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: -moz-fit-content;
+  height: fit-content;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(233deg) brightness(105%) contrast(102%);
+}
+.view__header .siguiente {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: -moz-fit-content;
+  height: fit-content;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(233deg) brightness(105%) contrast(102%);
+  rotate: 180deg;
+}
+.view__header h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+.view__content {
+  height: 90vh;
+  padding-top: 52px;
+  z-index: 1;
+}
+.view__content h2 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.view__content ol {
+  margin-left: 28px;
+}
+.view__content p,
+.view__content li {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.view__content2 {
+  position: absolute;
+  bottom: 0;
+  width: calc(100vw - 200px);
+  height: calc(100vh - 208px);
+  padding-top: 52px;
+  transform: translateX(100vw);
+}
+.view__content2 h2 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.view__content2 ol {
+  margin: 16px 0 16px 80px;
+}
+.view__content2 p,
+.view__content2 li {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.view::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* Aquí puedes ajustar la opacidad (0.5 en este caso) */
+}
+
+/* ******* Acasa-cidtions ******* */
+/* Fade out screen saver acasa-cidtion */
+.fade-out {
+  acasa-cidtion: fade-out 1s ease-in-out forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Fade in main acasa-cidtion */
+.fade-in {
+  acasa-cidtion: fade-in 1s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Slide in (left to right) view acasa-cidtion */
+.slide-in {
+  acasa-cidtion: slide-in 1s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Slide out (right to left) view acasa-cidtion */
+.slide-out {
+  acasa-cidtion: slide-out 1s ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+/* Slide in (right to left) view acasa-cidtion */
+.slide-in-right {
+  acasa-cidtion: slide-in-right 1s ease-in-out forwards;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Slide out (left to right) view acasa-cidtion */
+.slide-out-right {
+  acasa-cidtion: slide-out-right 1s ease-in-out forwards;
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}/*# sourceMappingURL=style.css.map */

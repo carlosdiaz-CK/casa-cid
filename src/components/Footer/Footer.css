@@ -1,0 +1,42 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 12vh;
+}
+
+.footer .footer__languages {
+  position: absolute;
+  left: 5vh;
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  z-index: 1;
+}
+
+.footer .footer__languages img {
+  height: 55.5%;
+}
+
+.footer .footer_pageCount {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.footer .footer__return {
+  position: absolute;
+  right: 5vh;
+  display: flex;
+  height: 100%;
+}
+
+.footer .footer__returnBtn {
+  height: 100%;
+}
+
+.footer .footer__returnBtn img {
+  height: 55.5%;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(233deg) brightness(105%) contrast(102%);
+}
