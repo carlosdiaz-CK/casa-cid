@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
 import PagesHeader from "../../components/PagesHeader/PagesHeader";
 import Footer from "../../components/Footer/Footer";
 import "../../styles/reglamento.css";
 
-const index = () => {
-  return (
-    <>
-      <PagesLayout backgroundImage="/assets/img/photos/casa-cid-8.jpg">
-        <ScreenSaver />
+import Home from "../index";
 
-        <PagesHeader
-          backButtonHref="/"
-          titlePage="Reglamento"
-          // nextButtonHref="/reglamento/page2"
-        />
+const Reglamento = () => {
+  const [currentPage, setCurrentPage] = useState("");
 
-        <div className="main__content">
-          {/* <p>
+  const handleNavigationBack = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  };
+
+  let content;
+  switch (currentPage) {
+    case "home":
+      content = <Home />;
+      break;
+    default:
+      content = (
+        <>
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
+            <ScreenSaver />
+
+            <PagesHeader
+              backButtonHref="#!"
+              handleNavigationBack={handleNavigationBack}
+              titlePage="Reglamento"
+              // nextButtonHref="/reglamento/page2"
+            />
+
+            <div className="main__content">
+              {/* <p>
             <strong>Estimado Propietario de Nima Bay:</strong>
           </p>
           <p>
@@ -51,12 +68,15 @@ const index = () => {
               total de 8 huéspedes.
             </li>
           </ul> */}
-        </div>
+            </div>
 
-        <Footer homeBtn={true} pageCount={1} totalPages={1} />
-      </PagesLayout>
-    </>
-  );
+            <Footer homeBtn={true} pageCount={1} totalPages={1} zIndexStyle={1} />
+          </PagesLayout>
+        </>
+      );
+  }
+
+  return <>{content}</>;
 };
 
-export default index;
+export default Reglamento;

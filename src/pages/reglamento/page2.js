@@ -8,7 +8,7 @@ import "../../styles/reglamento.css";
 const page2 = () => {
   return (
     <>
-      <PagesLayout backgroundImage="/assets/img/photos/casa-cid-8.jpg">
+      <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
         <ScreenSaver />
 
         <PagesHeader

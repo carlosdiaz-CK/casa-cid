@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PagesHeader.css";
-import { Link } from "react-router-dom";
 
-const PagesHeader = ({ backButtonHref, titlePage, nextButtonHref }) => {
+const PagesHeader = ({ backButtonHref, handleNavigationBack, titlePage, nextButtonHref, handleNavigationNext }) => {
   return (
     <>
       <div className="PagesHeader">
         {backButtonHref && (
-          <Link to={backButtonHref}>
-            <img src="/assets/img/atras.png" alt="Atrás" className="atras" />
-          </Link>
+          <a href={backButtonHref} onClick={handleNavigationBack}>
+            <img src="./assets/img/atras.png" alt="Atrás" className="atras" />
+          </a>
         )}
 
         <h1>{titlePage}</h1>
 
         {nextButtonHref && (
-          <Link to={nextButtonHref}>
-            <img src="/assets/img/siguiente.png" alt="Siguiente" className="siguiente" />
-          </Link>
+          <a href={nextButtonHref} onClick={handleNavigationNext}>
+            <img src="./assets/img/siguiente.png" alt="Siguiente" className="siguiente" />
+          </a>
         )}
       </div>
     </>
