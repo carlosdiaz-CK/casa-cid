@@ -50,8 +50,12 @@ export default function Home() {
       content = (
         <main className="main">
           <video autoPlay muted loop className="main__video">
-            <source
+            {/* <source
               src="./assets/video/screen-saver-casa-cid.mp4"
+              type="video/mp4"
+            /> */}
+            <source
+              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
               type="video/mp4"
             />
           </video>
