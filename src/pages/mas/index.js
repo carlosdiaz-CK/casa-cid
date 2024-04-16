@@ -50,18 +50,21 @@ const Mas = () => {
 
                 <div>
                   <img
-                    src="./assets/img/pages/mas/bolongo-1.jpeg"
+                    src="./assets/img/pages/mas/bolongo1.jpg"
                     alt="Bolongo"
                   />
                   <img
-                    src="./assets/img/pages/mas/bolongo-2.jpeg"
+                    src="./assets/img/pages/mas/bolongo2.jpeg"
                     alt="Bolongo"
                   />
                   <img
-                    src="./assets/img/pages/mas/bolongo-3.jpeg"
+                    src="./assets/img/pages/mas/bolongo3.jpg"
                     alt="Bolongo"
                   />
-                  <img src="./assets/img/qr.jpeg" alt="QR CID Kapital" />
+                  <img
+                    src="./assets/img/pages/mas/bolongo4.jpg"
+                    alt="Bolongo"
+                  />
                 </div>
               </div>
             </div>

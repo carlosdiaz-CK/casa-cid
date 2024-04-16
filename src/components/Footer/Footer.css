@@ -11,9 +11,12 @@
   position: absolute;
   left: 5vh;
   display: flex;
-  gap: 20px;
   height: 100%;
   z-index: 1;
+}
+
+.footer .footer__languages a {
+  width: 80px;
 }
 
 .footer .footer__languages img {

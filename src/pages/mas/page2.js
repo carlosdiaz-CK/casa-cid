@@ -35,22 +35,25 @@ const Mas2 = () => {
 
             <div className="main__content">
               <div className="page mas">
-                <h2>CASA CID, IPOMEA SAYULITA, NAYARIT</h2>
+                <h2>NIMA BAY, MARINA VALLARTA, JALISCO</h2>
 
                 <div>
                   <img
-                    src="./assets/img/pages/mas/nima-1.jpeg"
+                    src="./assets/img/pages/mas/nima1.jpeg"
                     alt="Nima Bay"
                   />
                   <img
-                    src="./assets/img/pages/mas/nima-2.jpeg"
+                    src="./assets/img/pages/mas/nima2.jpeg"
                     alt="Nima Bay"
                   />
                   <img
-                    src="./assets/img/pages/mas/nima-3.jpeg"
+                    src="./assets/img/pages/mas/nima3.jpeg"
                     alt="Nima Bay"
                   />
-                  <img src="./assets/img/qr.jpeg" alt="QR CID Kapital" />
+                  <img
+                    src="./assets/img/pages/mas/nima4.jpeg"
+                    alt="Nima Bay"
+                  />
                 </div>
               </div>
             </div>

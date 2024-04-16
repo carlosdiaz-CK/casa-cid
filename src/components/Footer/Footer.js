@@ -31,7 +31,7 @@ const Footer = ({ homeBtn, pageCount, totalPages, zIndexStyle }) => {
 
       <div className="footer__return">
         {homeBtn && (
-          <a href="/" className="footer__returnBtn">
+          <a href="https://main--casa-cid.netlify.app/" className="footer__returnBtn">
             <img
               src="./assets/img/home.png"
               alt="Botón de regreso al inicio"
