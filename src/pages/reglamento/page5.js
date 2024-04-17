@@ -1,69 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
+
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
 import PagesHeader from "../../components/PagesHeader/PagesHeader";
 import Footer from "../../components/Footer/Footer";
 import "../../styles/reglamento.css";
 
-const page2 = () => {
-  return (
-    <>
-      <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
-        <ScreenSaver />
+import Reglamento4 from "./page4";
+import Reglamento6 from "./page6";
+import Home from "../index";
 
-        <PagesHeader
-          backButtonHref="/reglamento/page4"
-          titlePage="Reglamento"
-          nextButtonHref="/reglamento/page6"
-        />
+const Reglamento5 = () => {
+  const [currentPage, setCurrentPage] = useState("");
 
-        <div className="main__content">
-          <li>
-            No se permitirá tener en el interior del edificio, animales que
-            resulten molestos a los residentes de Nima Bay (pericos y perros que
-            ladran).
-          </li>
-          <li>
-            Todas las mascotas deben de estar con correa en todo momento, nunca
-            pueden ser dejado sin atención en las áreas comunes incluyendo los
-            pasillos.
-          </li>
-          <li>
-            Las heces de mascotas en las áreas comunes deben ser limpiados y
-            desinfectados por el propietario inmediatamente.
-          </li>
-          <li>
-            Las Mascotas deben permanecer exclusivamente dentro del departamento
-            del Propietario, preservando la higiene general. El paseo de las
-            Mascotas se deberá realizar al exterior de la propiedad del
-            Condominio. Para su traslado se utilizará correa y deberán utilizar
-            el estacionamiento, quedando estrictamente prohibido pasar por las
-            áreas comunes y dentro o adyacentes a los caminantes. El dueño de la
-            mascota será responsable de recolectar las heces de su Mascota
-            durante el traslado.
-          </li>
+  const handleNavigationBack = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento4");
+  };
 
-          <p>
-            <strong>MUDANZAS</strong>
-          </p>
+  const handleNavigationNext = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento6");
+  };
 
-          <li>
-            Horarios de mudanzas son de Lunes a Viernes de 9:00 a 18:00 horas y
-            Sábados de 9:00 a 14:00 horas
-          </li>
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
 
-          <li>
-            Antes de comprar sus muebles y línea blanca tomar en cuenta las
-            medidas del elevador así como las puertas de su condominio que son
-            estándar, en nuestra oficina contamos con todas las medidas para
-            facilitar su mudanza.
-          </li>
-        </div>
+  let content;
+  switch (currentPage) {
+    case "reglamento4":
+      content = <Reglamento4 />;
+      break;
+    case "reglamento6":
+      content = <Reglamento6 />;
+      break;
+    case "home":
+      content = <Home />;
+      break;
+    default:
+      content = (
+        <>
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
+            <ScreenSaver />
 
-        <Footer homeBtn={true} pageCount={5} totalPages={12} />
-      </PagesLayout>
-    </>
-  );
+            <PagesHeader
+              backButtonHref="#!"
+              handleNavigationBack={handleNavigationBack}
+              titlePage="Reglamento"
+              nextButtonHref="#!"
+              handleNavigationNext={handleNavigationNext}
+            />
+
+            <div className="main__content">
+              <ol start={9}>
+                <li>
+                  Está prohibido ingresar a la alberca con cualquier tipo de
+                  alimentos o bebidas.
+                </li>
+                <li>
+                  CÓDIGO DE VESTIMENTA. Está prohibido entrar a la alberca en
+                  cualquier prenda de ropa que no sea traje de baño, esto es
+                  obligatorio.
+                </li>
+                <li>
+                  Cualquier persona en notorio estado de embriaguez o bajo el
+                  influjo de alguna droga, podrá ser retirada del área por
+                  personal de seguridad.
+                </li>
+                <li>
+                  Está PROHIBIDO hacer fogatas de cualquier tipo. Asimismo, está
+                  prohibido el uso de cualquier tipo de fuegos artificiales en
+                  las áreas comunes del condominio.
+                  <br />
+                  En caso de violación al reglamento por parte de algún
+                  inquilino o visitante, la oficina de Administración podrá
+                  solicitar al propietario el retiro de las personas que
+                  considere necesarias.
+                </li>
+                <li>
+                  Mantener el orden y cuidado en las áreas comunes del
+                  condominio.
+                </li>
+              </ol>
+
+              <p className="pTitle">
+                <strong>ALIMENTOS Y BEBIDAS.</strong>
+              </p>
+
+              <p>
+                Está permitido tener alimentos y bebidas en áreas comunes del
+                condominio, siempre y cuando se observen las siguientes reglas:
+              </p>
+            </div>
+
+            <Footer
+              pageCount={5}
+              totalPages={7}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
+              zIndexStyle={1}
+            />
+          </PagesLayout>
+        </>
+      );
+  }
+
+  return content;
 };
 
-export default page2;
+export default Reglamento5;

@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import "../../styles/actividades.css";
 
 import Actividades from "./index";
+import Home from "../index";
 
 const Actividades2 = () => {
   const [currentPage, setCurrentPage] = useState("");
@@ -16,10 +17,18 @@ const Actividades2 = () => {
     setCurrentPage("actividades");
   };
 
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
+
   let content;
   switch (currentPage) {
     case "actividades":
       content = <Actividades />;
+      break;
+    case "home":
+      content = <Home />;
       break;
     default:
       content = (
@@ -30,7 +39,7 @@ const Actividades2 = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Actividades al aire libre"
+              titlePage="Actividades en Sayulita"
             />
 
             <div className="main__content">
@@ -56,9 +65,10 @@ const Actividades2 = () => {
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={2}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
               zIndexStyle={1}
             />
           </PagesLayout>

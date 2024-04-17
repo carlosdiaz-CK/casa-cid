@@ -1,61 +1,118 @@
-import React from "react";
+import React, { useState } from "react";
+
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
 import PagesHeader from "../../components/PagesHeader/PagesHeader";
 import Footer from "../../components/Footer/Footer";
 import "../../styles/reglamento.css";
 
-const page2 = () => {
-  return (
-    <>
-      <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
-        <ScreenSaver />
+import Reglamento5 from "./page5";
+import Reglamento7 from "./page7";
+import Home from "../index";
 
-        <PagesHeader
-          backButtonHref="/reglamento/page5"
-          titlePage="Reglamento"
-          nextButtonHref="/reglamento/page7"
-        />
+const Reglamento6 = () => {
+  const [currentPage, setCurrentPage] = useState("");
 
-        <div className="main__content">
-          <li>
-            No está permitido utilizar el elevador para mover muebles, línea
-            blanca o cosas pesadas, todo tiene que subir por las escaleras de
-            emergencia, de esta manera mantendremos el elevador en el mejor
-            estado posible.
-          </li>
+  const handleNavigationBack = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento5");
+  };
 
-          <p>
-            <strong>USO DE ÁREAS COMUNES</strong>
-          </p>
+  const handleNavigationNext = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento7");
+  };
 
-          <li>
-            Recordar que las áreas comunes pertenecen a todos, por lo que
-            cualquier daño a la estructura del condominio que haya sido
-            producido durante la mudanza o en cualquier otra situación tanto por
-            trabajadores, decoradores, albañiles, cargadores, mascotas,
-            familiares o visitantes, será responsabilidad del propietario.
-          </li>
-          <li>Favor de no dejar basura en los pasillos o en áreas comunes.</li>
-          <li>
-            Depositar o tirar residuos sólidos, orgánicos e inorgánicos (basura
-            en general, colillas, papeles, etc.) en las áreas comunes (albercas,
-            bar, pasillos, elevadores, etc.), así como, en los departamentos y
-            áreas de uso exclusivo de otros Propietarios.
-          </li>
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
 
-          <li>
-            Arrojar residuos líquidos o sustancias inflamables y en general todo
-            tipo de objetos que por su tamaño o características puedan afectar
-            desagües, tuberías ductos para la basura o provocar obstrucciones en
-            los mismos.
-          </li>
-        </div>
+  let content;
+  switch (currentPage) {
+    case "reglamento5":
+      content = <Reglamento5 />;
+      break;
+    case "reglamento7":
+      content = <Reglamento7 />;
+      break;
+    case "home":
+      content = <Home />;
+      break;
+    default:
+      content = (
+        <>
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
+            <ScreenSaver />
 
-        <Footer homeBtn={true} pageCount={6} totalPages={12} />
-      </PagesLayout>
-    </>
-  );
+            <PagesHeader
+              backButtonHref="#!"
+              handleNavigationBack={handleNavigationBack}
+              titlePage="Reglamento"
+              nextButtonHref="#!"
+              handleNavigationNext={handleNavigationNext}
+            />
+
+            <div className="main__content">
+              <ol>
+                <li>
+                  En áreas de Albercas y Áreas Comunes, está prohibido el uso de
+                  vasos, copas, platos, refractarios, etc. de cristal.
+                </li>
+                <li>
+                  Siempre se deberán usar vajillas de plástico, para evitar un
+                  accidente.
+                </li>
+                <li>
+                  Está prohibido el uso de platos de plástico desechable. Solo
+                  se permite el uso de platos de cartón (o materiales similares)
+                  biodegradables.
+                </li>
+                <li>
+                  Está prohibido contratar servicio de banquetes y catering para
+                  ser servido en Áreas Comunes.
+                </li>
+                <li>
+                  El uso de hieleras personales en las áreas públicas está
+                  permitido, siempre y cuando la hielera sea del tipo, color y
+                  modelo aprobado. (solo aplica para el condominio Bolongo)
+                </li>
+                <li>
+                  BEBIDAS. Las botellas de cristal de vino, licor, cerveza,
+                  refresco, agua, etc., deberán permanecer siempre en las
+                  Hieleras.
+                </li>
+              </ol>
+
+              <p className="pTitle">
+                <strong>DISPOSICIONES GENERALES.</strong>
+              </p>
+
+              <ol>
+                <li>
+                  El uso de cámaras profesionales, equipos de video, drones y
+                  otros equipos NO está permitido.
+                </li>
+                <li>
+                  Los departamentos tendrán una ocupación máxima de 3 personas
+                  por habitación.
+                </li>
+              </ol>
+            </div>
+
+            <Footer
+              pageCount={6}
+              totalPages={7}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
+              zIndexStyle={1}
+            />
+          </PagesLayout>
+        </>
+      );
+  }
+
+  return content;
 };
 
-export default page2;
+export default Reglamento6;

@@ -39,7 +39,7 @@ const Despensa = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Despensa"
+              titlePage="Tu despensa"
               nextButtonHref="#!"
               handleNavigationNext={handleNavigationNext}
             />
@@ -91,9 +91,10 @@ const Despensa = () => {
               </div>
             </div>
             <Footer
-              homeBtn={true}
               pageCount={1}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={() => setCurrentPage("home")}
               zIndexStyle={1}
             />
           </PagesLayout>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
@@ -11,6 +13,8 @@ import Mas2 from "./page2";
 
 const Mas = () => {
   const [currentPage, setCurrentPage] = useState("");
+  const [openLightbox, setOpenLightbox] = useState(Array(4).fill(false));
+  const [openWA, setOpenWA] = useState(false);
 
   const handleNavigationBack = (e) => {
     e.preventDefault();
@@ -20,6 +24,18 @@ const Mas = () => {
   const handleNavigationNext = (e) => {
     e.preventDefault();
     setCurrentPage("mas2");
+  };
+
+  const openLightboxAtIndex = (index) => {
+    const updatedLightboxState = [...openLightbox];
+    updatedLightboxState[index] = true;
+    setOpenLightbox(updatedLightboxState);
+  };
+
+  const closeLightboxAtIndex = (index) => {
+    const updatedLightboxState = [...openLightbox];
+    updatedLightboxState[index] = false;
+    setOpenLightbox(updatedLightboxState);
   };
 
   let content;
@@ -39,7 +55,7 @@ const Mas = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Más opciones"
+              titlePage="Más lugares Travel"
               nextButtonHref="#!"
               handleNavigationNext={handleNavigationNext}
             />
@@ -49,30 +65,50 @@ const Mas = () => {
                 <h2>BOLONGO, PUNTA DE MITA, NAYARIT</h2>
 
                 <div>
-                  <img
-                    src="./assets/img/pages/mas/bolongo1.jpg"
-                    alt="Bolongo"
-                  />
-                  <img
-                    src="./assets/img/pages/mas/bolongo2.jpeg"
-                    alt="Bolongo"
-                  />
-                  <img
-                    src="./assets/img/pages/mas/bolongo3.jpg"
-                    alt="Bolongo"
-                  />
-                  <img
-                    src="./assets/img/pages/mas/bolongo4.jpg"
-                    alt="Bolongo"
-                  />
+                  {[1, 2, 3, 4].map((index) => (
+                    <img
+                      key={index}
+                      src={`./assets/img/pages/mas/bolongo${index}.jpg`}
+                      alt="Bolongo"
+                      onClick={() => openLightboxAtIndex(index - 1)}
+                    />
+                  ))}
                 </div>
+                {openLightbox.map((isOpen, index) => (
+                  <Lightbox
+                    key={index}
+                    open={isOpen}
+                    close={() => closeLightboxAtIndex(index)}
+                    slides={[
+                      ...Array.from({ length: 4 }, (_, i) => ({
+                        src: `./assets/img/pages/mas/bolongo${
+                          ((index + i) % 4) + 1
+                        }.JPG`,
+                      })),
+                    ]}
+                  />
+                ))}
+
+                <img
+                  src="./assets/img/wa.png"
+                  alt="WhatsApp"
+                  className="WA"
+                  onClick={() => setOpenWA(true)}
+                />
+
+                <Lightbox
+                  open={openWA}
+                  close={() => setOpenWA(false)}
+                  slides={[{ src: "./assets/img/qr.jpg" }]}
+                />
               </div>
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={1}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationBack}
               zIndexStyle={1}
             />
           </PagesLayout>

@@ -50,12 +50,8 @@ export default function Home() {
       content = (
         <main className="main">
           <video autoPlay muted loop className="main__video">
-            {/* <source
-              src="./assets/video/screen-saver-casa-cid.mp4"
-              type="video/mp4"
-            /> */}
             <source
-              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+              src="./assets/video/screen-saver-casa-cid.mp4"
               type="video/mp4"
             />
           </video>
@@ -76,7 +72,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#!" onClick={() => handleNavigation("actividades")}>
-                    Actividades
+                    Actividades en Sayulita
                   </a>
                 </li>
                 <li>
@@ -84,27 +80,27 @@ export default function Home() {
                     href="#!"
                     onClick={() => handleNavigation("comida-bebida")}
                   >
-                    Comida y bebida
+                    Restaurantes y bares
                   </a>
                 </li>
                 <li>
                   <a href="#!" onClick={() => handleNavigation("visitar")}>
-                    Visitar
+                    Por visitar
                   </a>
                 </li>
                 <li>
                   <a href="#!" onClick={() => handleNavigation("despensa")}>
-                    Despensa
+                    Tu despensa
                   </a>
                 </li>
                 <li>
                   <a href="#!" onClick={() => handleNavigation("telefonos")}>
-                    Teléfonos
+                    Teléfonos de emergencia
                   </a>
                 </li>
                 <li>
                   <a href="#!" onClick={() => handleNavigation("mas")}>
-                    Más
+                    Más lugares Travel
                   </a>
                 </li>
                 <li>

@@ -39,7 +39,7 @@ const Actividades = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Actividades al aire libre"
+              titlePage="Actividades en Sayulita"
               nextButtonHref="#!"
               handleNavigationNext={handleNavigationNext}
             />
@@ -87,9 +87,10 @@ const Actividades = () => {
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={1}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={() => setCurrentPage("home")}
               zIndexStyle={1}
             />
           </PagesLayout>

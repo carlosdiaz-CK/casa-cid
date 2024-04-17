@@ -1,62 +1,116 @@
-import React from "react";
+import React, { useState } from "react";
+
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
 import PagesHeader from "../../components/PagesHeader/PagesHeader";
 import Footer from "../../components/Footer/Footer";
 import "../../styles/reglamento.css";
 
-const page2 = () => {
-  return (
-    <>
-      <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
-        <ScreenSaver />
+import Reglamento3 from "./page3";
+import Reglamento5 from "./page5";
+import Home from "../index";
 
-        <PagesHeader
-          backButtonHref="/reglamento/page3"
-          titlePage="Reglamento"
-          nextButtonHref="/reglamento/page5"
-        />
+const Reglamento4 = () => {
+  const [currentPage, setCurrentPage] = useState("");
 
-        <div className="main__content">
-          <li>
-            Realizar modificaciones estéticas o sustanciales a la estructura y
-            fachada exterior del Departamento, de las áreas comunes o de uso
-            exclusivo, salvo previa autorización por escrito emitida por el
-            Administrador y autorizada por el Consejo de Administración del
-            Condominio o la Asamblea de Condóminos cuando la naturaleza de los
-            trabajos o modificaciones así lo ameriten. Cualquier trabajo de obra
-            a realizarse en el Condominio o en cualquiera de los Departamentos
-            solo podrán ejecutarse dentro del horario comprendido de lunes a
-            viernes de 10:00 a 18:00 horas, siempre y cuando estos sean hábiles.
-            Los Propietarios podrán realizar o ejecutar trabajos de
-            mantenimiento o reparaciones a su Departamento fuera del horario
-            establecido, cuando la naturaleza de dichos trabajos o reparaciones
-            así lo requieran, previa aprobación del Administrador.
-          </li>
-          <li>
-            En la entrega de su condominio recibirán por cada habitación 1
-            toalla de cortesía por parte del desarrollador. Estas toallas
-            tendrán bordado el número de su departamento y son las únicas
-            toallas autorizadas para su uso en el área de alberca y áreas
-            comunes. Si llegaran a necesitar más toallas o reposición de las
-            mismas favor de pasar a esta administración.
-          </li>
+  const handleNavigationBack = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento3");
+  };
 
-          <p>
-            <strong>ANIMALES Y MASCOTAS</strong>
-          </p>
+  const handleNavigationNext = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento5");
+  };
 
-          <li>
-            Se permitirá un máximo de una mascota de raza pequeña ya sea perros
-            o gatos por cada condominio, y deberán ser registrados con el
-            Administrador General.
-          </li>
-        </div>
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  };
 
-        <Footer homeBtn={true} pageCount={4} totalPages={12} />
-      </PagesLayout>
-    </>
-  );
+  let content;
+  switch (currentPage) {
+    case "reglamento3":
+      content = <Reglamento3 />;
+      break;
+    case "reglamento5":
+      content = <Reglamento5 />;
+      break;
+    case "home":
+      content = <Home />;
+      break;
+    default:
+      content = (
+        <>
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
+            <ScreenSaver />
+
+            <PagesHeader
+              backButtonHref="#!"
+              handleNavigationBack={handleNavigationBack}
+              titlePage="Reglamento"
+              nextButtonHref="#!"
+              handleNavigationNext={handleNavigationNext}
+            />
+
+            <div className="main__content">
+              <p>
+                <strong>REGLAMENTO REDUCIDO DE CONVIVENCIA.</strong> ÁREAS
+                COMUNES
+              </p>
+
+              <ol>
+                <li>
+                  El horario de uso de la alberca es conforme al reglamento
+                  interno del condominio. .
+                </li>
+                <li>
+                  El uso de la alberca es bajo responsabilidad del condómino o
+                  visitante. No se cuenta con servicio de salvavidas.
+                </li>
+                <li>
+                  Todos los menores de 12 años deberán estar supervisados por un
+                  adulto.
+                </li>
+                <li>Favor de depositar la basura en su lugar.</li>
+                <li>
+                  Está prohibido tener cualquier tipo de envases de vidrio en la
+                  zona de alberca. Evitemos un accidente.
+                </li>
+                <li>
+                  Está prohibido tener bocinas o equipos de música con volumen
+                  de tal forma que sea escuchado por los demás condóminos.,. Si
+                  utiliza aparatos electrónicos en el área del jardín, alberca o
+                  snack bar, favor de usar audífonos para no molestar a los
+                  demás propietarios.
+                </li>
+                <li>
+                  Está prohibido entrar a la alberca con arena. Favor de
+                  enjuagarse en las regaderas.
+                </li>
+                <li>
+                  Está prohibido apartar camastros, sillas o mesas en temporadas
+                  de alta ocupación. La oficina de Administración podrá dictar
+                  medidas temporales. Si se encuentran sus pertenencias sobre
+                  dichos muebles, serán enviados a la administración en calidad
+                  de extraviados.
+                </li>
+              </ol>
+            </div>
+
+            <Footer
+              pageCount={4}
+              totalPages={7}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
+              zIndexStyle={1}
+            />
+          </PagesLayout>
+        </>
+      );
+  }
+
+  return content;
 };
 
-export default page2;
+export default Reglamento4;

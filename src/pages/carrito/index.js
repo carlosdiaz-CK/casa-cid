@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
@@ -11,10 +13,24 @@ import Home from "../index";
 
 const Carrito = () => {
   const [currentPage, setCurrentPage] = useState("");
+  const [openLightbox, setOpenLightbox] = useState(Array(4).fill(false));
+  const [openWA, setOpenWA] = useState(false);
 
   const handleNavigationBack = (e) => {
     e.preventDefault();
     setCurrentPage("home");
+  };
+
+  const openLightboxAtIndex = (index) => {
+    const updatedLightboxState = [...openLightbox];
+    updatedLightboxState[index] = true;
+    setOpenLightbox(updatedLightboxState);
+  };
+
+  const closeLightboxAtIndex = (index) => {
+    const updatedLightboxState = [...openLightbox];
+    updatedLightboxState[index] = false;
+    setOpenLightbox(updatedLightboxState);
   };
 
   let content;
@@ -27,42 +43,60 @@ const Carrito = () => {
         <>
           <PagesLayout backgroundImage="./assets/img/photos/casa-cid-1.jpg">
             <ScreenSaver />
-
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
               titlePage="Carrito de golf"
             />
-
             <div className="main__content">
               <div className="page mas carrito">
                 <h2>Réntalo para transportarte</h2>
 
                 <div>
-                  <img
-                    src="./assets/img/pages/carrito/carrito-1.JPG"
-                    alt="Carrito de golf"
-                  />
-                  <img
-                    src="./assets/img/pages/carrito/carrito-2.JPG"
-                    alt="Carrito de golf"
-                  />
-                  <img
-                    src="./assets/img/pages/carrito/carrito-3.JPG"
-                    alt="Carrito de golf"
-                  />
-                  <img
-                    src="./assets/img/pages/carrito/carrito-4.jpeg"
-                    alt="Carrito de golf"
-                  />
+                  {[1, 2, 3, 4].map((index) => (
+                    <img
+                      key={index}
+                      src={`./assets/img/pages/carrito/carrito-${index}.JPG`}
+                      alt="Carrito de golf"
+                      onClick={() => openLightboxAtIndex(index - 1)}
+                    />
+                  ))}
                 </div>
+                {openLightbox.map((isOpen, index) => (
+                  <Lightbox
+                    key={index}
+                    open={isOpen}
+                    close={() => closeLightboxAtIndex(index)}
+                    slides={[
+                      ...Array.from({ length: 4 }, (_, i) => ({
+                        src: `./assets/img/pages/carrito/carrito-${
+                          ((index + i) % 4) + 1
+                        }.JPG`,
+                      })),
+                    ]}
+                  />
+                ))}
+
+                <img
+                  src="./assets/img/wa.png"
+                  alt="WhatsApp"
+                  className="WA"
+                  onClick={() => setOpenWA(true)}
+                />
+
+                <Lightbox
+                  open={openWA}
+                  close={() => setOpenWA(false)}
+                  slides={[{ src: "./assets/img/qr.jpg" }]}
+                />
               </div>
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={1}
               totalPages={1}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationBack}
               zIndexStyle={1}
             />
           </PagesLayout>

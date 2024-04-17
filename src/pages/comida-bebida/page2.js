@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import "../../styles/comida-bebida.css";
 
 import ComidaBebida from "./index";
+import Home from "../index";
 
 const ComidaBebida2 = () => {
   const [currentPage, setCurrentPage] = useState("");
@@ -16,10 +17,18 @@ const ComidaBebida2 = () => {
     setCurrentPage("comida-bebida");
   };
 
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
+
   let content;
   switch (currentPage) {
     case "comida-bebida":
       content = <ComidaBebida />;
+      break;
+    case "home":
+      content = <Home />;
       break;
     default:
       content = (
@@ -30,7 +39,7 @@ const ComidaBebida2 = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Comida y bebida"
+              titlePage="Restaurantes y bares"
             />
 
             <div className="main__content">
@@ -87,9 +96,10 @@ const ComidaBebida2 = () => {
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={2}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
               zIndexStyle={1}
             />
           </PagesLayout>

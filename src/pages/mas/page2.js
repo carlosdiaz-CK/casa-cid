@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
@@ -7,19 +9,42 @@ import Footer from "../../components/Footer/Footer";
 import "../../styles/mas.css";
 
 import Mas from "./index";
+import Home from "../index";
 
 const Mas2 = () => {
   const [currentPage, setCurrentPage] = useState("");
+  const [openLightbox, setOpenLightbox] = useState(Array(4).fill(false));
+  const [openWA, setOpenWA] = useState(false);
 
   const handleNavigationBack = (e) => {
     e.preventDefault();
     setCurrentPage("mas");
   };
 
+  const openLightboxAtIndex = (index) => {
+    const updatedLightboxState = [...openLightbox];
+    updatedLightboxState[index] = true;
+    setOpenLightbox(updatedLightboxState);
+  };
+
+  const closeLightboxAtIndex = (index) => {
+    const updatedLightboxState = [...openLightbox];
+    updatedLightboxState[index] = false;
+    setOpenLightbox(updatedLightboxState);
+  };
+
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
+
   let content;
   switch (currentPage) {
     case "mas":
       content = <Mas />;
+      break;
+    case "home":
+      content = <Home />;
       break;
     default:
       content = (
@@ -30,7 +55,7 @@ const Mas2 = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Más opciones"
+              titlePage="Más lugares Travel"
             />
 
             <div className="main__content">
@@ -38,30 +63,50 @@ const Mas2 = () => {
                 <h2>NIMA BAY, MARINA VALLARTA, JALISCO</h2>
 
                 <div>
-                  <img
-                    src="./assets/img/pages/mas/nima1.jpeg"
-                    alt="Nima Bay"
-                  />
-                  <img
-                    src="./assets/img/pages/mas/nima2.jpeg"
-                    alt="Nima Bay"
-                  />
-                  <img
-                    src="./assets/img/pages/mas/nima3.jpeg"
-                    alt="Nima Bay"
-                  />
-                  <img
-                    src="./assets/img/pages/mas/nima4.jpeg"
-                    alt="Nima Bay"
-                  />
+                  {[1, 2, 3, 4].map((index) => (
+                    <img
+                      key={index}
+                      src={`./assets/img/pages/mas/nima${index}.jpeg`}
+                      alt="Nima Bay"
+                      onClick={() => openLightboxAtIndex(index - 1)}
+                    />
+                  ))}
                 </div>
+                {openLightbox.map((isOpen, index) => (
+                  <Lightbox
+                    key={index}
+                    open={isOpen}
+                    close={() => closeLightboxAtIndex(index)}
+                    slides={[
+                      ...Array.from({ length: 4 }, (_, i) => ({
+                        src: `./assets/img/pages/mas/nima${
+                          ((index + i) % 4) + 1
+                        }.jpeg`,
+                      })),
+                    ]}
+                  />
+                ))}
+
+                <img
+                  src="./assets/img/wa.png"
+                  alt="WhatsApp"
+                  className="WA"
+                  onClick={() => setOpenWA(true)}
+                />
+
+                <Lightbox
+                  open={openWA}
+                  close={() => setOpenWA(false)}
+                  slides={[{ src: "./assets/img/qr.jpg" }]}
+                />
               </div>
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={2}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
               zIndexStyle={1}
             />
           </PagesLayout>

@@ -8,6 +8,7 @@ import "../../styles/visitar.css";
 
 import Visitar from "./index";
 import Visitar3 from "./page3";
+import Home from "../index";
 
 const Visitar2 = () => {
   const [currentPage, setCurrentPage] = useState("");
@@ -22,6 +23,11 @@ const Visitar2 = () => {
     setCurrentPage("visitar3");
   };
 
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
+
   let content;
   switch (currentPage) {
     case "visitar":
@@ -29,6 +35,9 @@ const Visitar2 = () => {
       break;
     case "visitar3":
       content = <Visitar3 />;
+      break;
+    case "home":
+      content = <Home />;
       break;
     default:
       content = (
@@ -39,7 +48,7 @@ const Visitar2 = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="¿Qué visitar?"
+              titlePage="Por visitar"
               nextButtonHref="#!"
               handleNavigationNext={handleNavigationNext}
             />
@@ -93,9 +102,10 @@ const Visitar2 = () => {
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={2}
               totalPages={3}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
               zIndexStyle={1}
             />
           </PagesLayout>

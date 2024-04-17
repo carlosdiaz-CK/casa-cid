@@ -1,69 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
+
 import PagesLayout from "../../layouts/PagesLayout";
 import ScreenSaver from "../../components/ScreenSaver/ScreenSaver";
 import PagesHeader from "../../components/PagesHeader/PagesHeader";
 import Footer from "../../components/Footer/Footer";
 import "../../styles/reglamento.css";
 
-const page2 = () => {
-  return (
-    <>
-      <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
-        <ScreenSaver />
+import Reglamento6 from "./page6";
+import Home from "../index";
 
-        <PagesHeader
-          backButtonHref="/reglamento/page6"
-          titlePage="Reglamento"
-          nextButtonHref="/reglamento/page8"
-        />
+const Reglamento7 = () => {
+  const [currentPage, setCurrentPage] = useState("");
 
-        <div className="main__content">
-          <li>
-            No se permite el uso de bicicletas, patines ni patinetas de
-            cualquier índole en las áreas comunes de Nima Bay.
-          </li>
+  const handleNavigationBack = (e) => {
+    e.preventDefault();
+    setCurrentPage("reglamento6");
+  };
 
-          <li>
-            Niños menores de 12 años deben estar siempre acompañados de un
-            adulto en las áreas comunes.
-          </li>
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
 
-          <p>
-            <strong>TOLVAS DE BASURA (DUCTO DE BASURA)</strong>
-          </p>
+  let content;
+  switch (currentPage) {
+    case "reglamento6":
+      content = <Reglamento6 />;
+      break;
+    case "home":
+      content = <Home />;
+      break;
+    default:
+      content = (
+        <>
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
+            <ScreenSaver />
 
-          <li>
-            El sistema de ducto de basura es pequeño (18 pulgadas), favor de no
-            desechar bolsas grandes, solo bolsas medianas que entren con
-            facilidad.
-          </li>
-          <li>
-            No tirar cajas de cualquier tipo por el ducto de basura, las cajas
-            se atoran y quedara bloqueado el sistema de ducto de basura y
-            causara malos olores en toda la torre. Tampoco se permite tirar
-            basura suelta incluido los periódicos, correo, botellas de vidrio,
-            cartón, líquidos, ganchos de ropa, materiales flamables o peligrosos
-            a excepción de los materiales antes mencionados la demás basura debe
-            ser empaquetada y sellada en bolsas medianas para posteriormente ser
-            arrojada por el ducto
-          </li>
+            <PagesHeader
+              backButtonHref="#!"
+              handleNavigationBack={handleNavigationBack}
+              titlePage="Reglamento"
+            />
 
-          <p>
-            <strong>MEJORAS Y REPARACIONES</strong>
-          </p>
+            <div className="main__content">
+              <ol start={3}>
+                <li>
+                  Queda prohibido colgar ropa, toallas o cualquier otra cosa en
+                  los balcones, barandales o mobiliario de las terrazas
+                </li>
+                <li>
+                  La música proveniente de una unidad privativa debe ser de tal
+                  forma que los vecinos NO la escuchen y solo en el horario que
+                  establezca el reglamento del condominio..
+                </li>
+                <li>
+                  Límite de Velocidad. El límite de velocidad dentro del
+                  condominio es de 20 km/h en vialidades y 10 km/h en
+                  estacionamientos.
+                </li>
+              </ol>
 
-          <li>
-            El horario para los contratistas del Propietario de construcción,
-            renovaciones y mejoras es de 10:00 a.m. a 6:00 p.m., de lunes a
-            viernes. No se permiten actividades de construcción los sábados,
-            domingos o días festivos.
-          </li>
-        </div>
+              <p className="pTitle">
+                <strong>MASCOTAS</strong>
+              </p>
 
-        <Footer homeBtn={true} pageCount={7} totalPages={12} />
-      </PagesLayout>
-    </>
-  );
+              <ol>
+                <li>
+                  No se permitirá en ninguna circunstancia tener dentro del
+                  departamento, ni en las azoteas, ni en ninguna otra área
+                  común, mascotas de cualquier índole.
+                </li>
+              </ol>
+
+              <br />
+              <br />
+              <p>
+                <strong>
+                  Las disposiciones previamente mencionadas en las áreas comunes
+                  pueden experimentar variaciones conforme al reglamento interno
+                  del condominio.
+                </strong>
+              </p>
+            </div>
+
+            <Footer
+              pageCount={7}
+              totalPages={7}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
+              zIndexStyle={1}
+            />
+          </PagesLayout>
+        </>
+      );
+  }
+
+  return <>{content}</>;
 };
 
-export default page2;
+export default Reglamento7;

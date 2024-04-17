@@ -46,6 +46,9 @@
   padding-left: 8px;
 }
 
-.pagesLayout__main .mas div iframe {
-  width: 50%;
+.pagesLayout__main .mas img.WA {
+  position: absolute;
+  bottom: 54px;
+  right: 120px;
+  width: 80px;
 }

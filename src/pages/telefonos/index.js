@@ -37,7 +37,13 @@ const Telefonos = () => {
               {/* <p><strong>Lobby: </strong>33 3333 3333</p> */}
             </div>
 
-            <Footer homeBtn={true} pageCount={1} totalPages={1} zIndexStyle={1} />
+            <Footer
+              pageCount={1}
+              totalPages={1}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationBack}
+              zIndexStyle={1}
+            />
           </PagesLayout>
         </>
       );

@@ -55,7 +55,7 @@ body {
 }
 
 .main__content ol {
-  margin: 20px 0 0 92px;
+  margin: 20px 0 0 0;
 }
 
 .main__content p,
@@ -63,6 +63,11 @@ body {
   font-size: 2.2rem;
   margin-bottom: 20px;
   font-weight: 100;
+}
+
+.main__content p.pTitle {
+  margin-top: 40px;
+  display: block;
 }
 
 .main__content .page h2 {

@@ -39,7 +39,7 @@ const Visitar = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="¿Qué visitar?"
+              titlePage="Por visitar"
               nextButtonHref="#!"
               handleNavigationNext={handleNavigationNext}
             />
@@ -95,9 +95,10 @@ const Visitar = () => {
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={1}
               totalPages={3}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationBack}
               zIndexStyle={1}
             />
           </PagesLayout>

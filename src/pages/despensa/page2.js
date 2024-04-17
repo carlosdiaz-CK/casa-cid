@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import "../../styles/despensa.css";
 
 import Despensa from "./index";
+import Home from "../index";
 
 const Despensa2 = () => {
   const [currentPage, setCurrentPage] = useState("");
@@ -16,10 +17,18 @@ const Despensa2 = () => {
     setCurrentPage("despensa");
   };
 
+  const handleNavigationHome = (e) => {
+    e.preventDefault();
+    setCurrentPage("home");
+  }
+
   let content;
   switch (currentPage) {
     case "despensa":
       content = <Despensa />;
+      break;
+    case "home":
+      content = <Home />;
       break;
     default:
       content = (
@@ -30,7 +39,7 @@ const Despensa2 = () => {
             <PagesHeader
               backButtonHref="#!"
               handleNavigationBack={handleNavigationBack}
-              titlePage="Despensa"
+              titlePage="Tu despensa"
             />
 
             <div className="main__content">
@@ -59,9 +68,10 @@ const Despensa2 = () => {
             </div>
 
             <Footer
-              homeBtn={true}
               pageCount={2}
               totalPages={2}
+              homeBtn={true}
+              handleNavigationHome={handleNavigationHome}
               zIndexStyle={1}
             />
           </PagesLayout>
