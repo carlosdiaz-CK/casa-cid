@@ -23,6 +23,7 @@
 
 .pagesLayout__main .mas div img {
   width: 50%;
+  min-width: 852px;
   object-fit: cover;
   max-height: 332px;
   border-radius: 20px;
