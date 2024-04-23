@@ -26,7 +26,7 @@ const Despensa2 = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-5.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-23.jpg">
             <ScreenSaver />
 
             <PagesHeader

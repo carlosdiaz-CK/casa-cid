@@ -31,7 +31,7 @@ a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("../../public/assets/img/photos/casa-cid-1.jpg");
+  background-image: url("../../public/assets/img/photos/casa-cid-2.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -199,102 +199,6 @@ a {
 .menu__nav li:nth-child(3),
 .menu__nav li:nth-child(6) {
   transform: translateX(-20px);
-}
-
-.view {
-  position: absolute;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
-  height: 100vh;
-  padding: 100px;
-  background-image: url('../../public/assets/img/photos/casa-cid-17.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  color: #ffffff;
-  transform: translateX(-100vw);
-  z-index: 2;
-}
-.view__header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 10vh;
-}
-.view__header .atras {
-  position: absolute;
-  left: 0;
-  width: 100px;
-  height: -moz-fit-content;
-  height: fit-content;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(233deg) brightness(105%) contrast(102%);
-}
-.view__header .siguiente {
-  position: absolute;
-  right: 0;
-  width: 100px;
-  height: -moz-fit-content;
-  height: fit-content;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(233deg) brightness(105%) contrast(102%);
-  rotate: 180deg;
-}
-.view__header h1 {
-  display: flex;
-  justify-content: center;
-  font-size: 4rem;
-  text-transform: uppercase;
-}
-.view__content {
-  height: 90vh;
-  padding-top: 52px;
-  z-index: 1;
-}
-.view__content h2 {
-  font-size: 2.4rem;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.view__content ol {
-  margin-left: 28px;
-}
-.view__content p,
-.view__content li {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.view__content2 {
-  position: absolute;
-  bottom: 0;
-  width: calc(100vw - 200px);
-  height: calc(100vh - 208px);
-  padding-top: 52px;
-  transform: translateX(100vw);
-}
-.view__content2 h2 {
-  font-size: 2.4rem;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.view__content2 ol {
-  margin: 16px 0 16px 80px;
-}
-.view__content2 p,
-.view__content2 li {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.view::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75); /* Aquí puedes ajustar la opacidad (0.5 en este caso) */
 }
 
 /* ******* Acasa-cidtions ******* */

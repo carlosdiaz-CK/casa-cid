@@ -36,7 +36,7 @@ const Carrito = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-1.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-2.jpg">
             <ScreenSaver />
             <PagesHeader
               backButtonHref="#!"

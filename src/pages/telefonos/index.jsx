@@ -18,7 +18,7 @@ const Telefonos = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-5.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-31.jpg">
             <ScreenSaver />
 
             <PagesHeader

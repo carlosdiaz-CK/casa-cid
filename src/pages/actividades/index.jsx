@@ -30,7 +30,7 @@ const Actividades = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-2.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-3.jpg">
             <ScreenSaver />
 
             <PagesHeader

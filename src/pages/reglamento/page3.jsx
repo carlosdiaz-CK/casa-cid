@@ -26,7 +26,7 @@ const Reglamento3 = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-8.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-52.jpg">
             <ScreenSaver />
 
             <PagesHeader

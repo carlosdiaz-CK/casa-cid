@@ -26,7 +26,7 @@ const Visitar = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-4.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-5.jpg">
             <ScreenSaver />
 
             <PagesHeader

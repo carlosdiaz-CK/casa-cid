@@ -1,11 +1,3 @@
-/* .pagesLayout__main {
-  position: relative;
-  background-image: url('../../public/assets/img/photos/casa-cid-8.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-} */
-
 .pagesLayout__main .mas {
   display: flex;
   flex-wrap: wrap;

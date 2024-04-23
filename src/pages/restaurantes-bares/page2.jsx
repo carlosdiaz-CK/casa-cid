@@ -26,7 +26,7 @@ const RestaurantesBares2 = () => {
     default:
       content = (
         <>
-          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-3.jpg">
+          <PagesLayout backgroundImage="./assets/img/photos/casa-cid-4.jpg">
             <ScreenSaver />
 
             <PagesHeader
