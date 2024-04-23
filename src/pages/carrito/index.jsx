@@ -51,7 +51,7 @@ const Carrito = () => {
                   {[1, 2, 3, 4].map((index) => (
                     <img
                       key={index}
-                      src={`./assets/img/pages/carrito/carrito-${index}.JPG`}
+                      src={`./assets/img/pages/carrito/carrito-${index}.jpg`}
                       alt="Carrito de golf"
                       onClick={() => openLightboxAtIndex(index - 1)}
                     />
@@ -66,7 +66,7 @@ const Carrito = () => {
                       ...Array.from({ length: 4 }, (_, i) => ({
                         src: `./assets/img/pages/carrito/carrito-${
                           ((index + i) % 4) + 1
-                        }.JPG`,
+                        }.jpg`,
                       })),
                     ]}
                   />
