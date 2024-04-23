@@ -58,7 +58,7 @@ const ScreenSaver = () => {
   return (
     <div style={{ display: isHidden ? "none" : "block" }} className="screen-saver-video">
       <video autoPlay muted loop id="screen-saver-video">
-        <source src="./assets/video/screen-saver-casa-cid.mp4" type="video/mp4" />
+        <source src="./assets/video/screen-saver-casa-cid.webm" type="video/mp4" />
       </video>
 
       <div className="screen-saver__logo">

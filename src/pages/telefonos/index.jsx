@@ -28,7 +28,32 @@ const Telefonos = () => {
             />
 
             <div className="main__content">
-              {/* <p><strong>Lobby: </strong>33 3333 3333</p> */}
+              <p>
+                <strong>Emergencias</strong>
+              </p>
+
+              <p>
+                Número de emergencia de Protección Civil. Este es el mejor número para llamar a Ambulancia, Bomberos y Socorristas de EMT:
+              </p>
+
+              <p>01 800 830 2185</p>
+              <p>(322) 113-3255</p>
+
+              <p className="pTitle">
+                <strong>Servicios de policía y bomberos:</strong>
+              </p>
+
+              <p>
+                Marque el 911 para emergencias. Se contesta en Puerto Vallarta, pero despachan desde Bucerías, Valle de Banderas, Jarretederas, etc, dependiendo de la necesidad del servicio, como servicio de policía, bomberos, servicio médico, etc.
+              </p>
+
+              <p>
+                Marca 080 desde celulares mexicanos. (Marcar 080 NO funcionará desde teléfonos celulares de EE. UU., Canadá o Europa). Por favor marque 01-329-291-1818 desde teléfonos celulares extranjeros. Programe este número en su celular para cualquier emergencia. Esta llamada va directamente a la oficina en Valle de Banderas, las 24 horas del día.
+              </p>
+
+              <p>
+                Para reportar actividad sospechosa en Sayulita, favor de marcar al 045-322-141-5994.
+              </p>
             </div>
 
             <Footer

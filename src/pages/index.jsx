@@ -54,7 +54,7 @@ export default function Home() {
           <main className="main">
             <video autoPlay muted loop className="main__video">
               <source
-                src="./assets/video/screen-saver-casa-cid.mp4"
+                src="./assets/video/screen-saver-casa-cid.webm"
                 type="video/mp4"
               />
             </video>
